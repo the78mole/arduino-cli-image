@@ -13,4 +13,8 @@ RUN apt-get update && apt-get install -y \
 RUN curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh && \
     mv bin/arduino-cli /usr/local/bin/arduino-cli
 
+RUN useradd -ms /bin/bash vscode \
+    && echo "vscode ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+USER vscode
+
 CMD ["arduino-cli"]
