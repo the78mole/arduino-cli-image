@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y \
     ca-certificates \
     git \
     sudo \
+    python3 \
+    python3-serial \
     && rm -rf /var/lib/apt/lists/*
 
 # Arduino CLI installieren
