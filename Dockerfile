@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     git \
     sudo \
     python3 \
+    python3-pip \
     python3-serial \
     && rm -rf /var/lib/apt/lists/*
 
@@ -28,6 +29,8 @@ RUN echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/${USERNAME} && \
 
 RUN echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/ubuntu && \
     chmod 0440 /etc/sudoers.d/ubuntu
+
+RUN pip install --break-system-packages pre-commit
 
 # Arbeitsverzeichnis und Nutzer setzen
 WORKDIR /home/${USERNAME}
