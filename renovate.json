@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "enabledManagers": [
+    "dockerfile",
+    "github-actions"
+  ],
+  "labels": ["dependencies"],
+  "dependencyDashboard": true,
+  "dependencyDashboardTitle": "📦 Renovate Dependency Dashboard",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "groupName": "📌 Major Updates",
+      "automerge": false
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "🔧 Minor and Patch Updates",
+      "automerge": true
+    }
+  ]
+}
